@@ -1,0 +1,192 @@
+<div class="admin-container">
+
+  <div class="top-header">
+    <h1>ADMINISTRAÇÃO - CONFEITARIA CAKE LAB</h1>
+    <span class="user-info">Olá, {{ adminLogadoNome || 'ADMINISTRADOR' }} :) </span> <button class="btn-logout" (click)="abrirModalLogout()">Sair</button>
+    <img src="logoCakeLab.png" class="logo">
+  </div>
+
+  <div class="buttons-area">
+    <button class="btn" (click)="abrirCadastro()">
+      {{ mostrarListaProdutos ? 'CADASTRAR PRODUTOS' : 'CADASTRAR ADMIN' }}
+    </button>
+    <button class="btn" (click)="abrirConsulta()">
+      {{ mostrarListaProdutos ? 'CONSULTAR PRODUTOS' : 'CONSULTAR ADMIN' }}
+    </button>
+    <button class="btn" (click)="abrirExcluir()">
+      {{ mostrarListaProdutos ? 'EXCLUIR PRODUTOS' : 'EXCLUIR ADMIN' }}
+    </button>
+    <button class="btn" (click)="alternarLista()">
+      {{ mostrarListaProdutos ? 'LISTAR ADMINS' : 'LISTAR PRODUTOS' }}
+    </button>
+  </div>
+
+  <div class="listagem-area">
+
+    @if (mostrarListaProdutos) {
+      <table class="tabela-produtos">
+        <thead>
+          <tr>
+            <th>Imagem</th>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>Descrição</th>
+            <th>Categoria</th>
+            <th>Preço</th>
+            <th>Estoque</th>
+            <th>Situação</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          @for (produto of listaProdutos; track produto.id) {
+            <tr>
+              <td>
+                <img [src]="produto.imagem" class="produto-img" alt="{{ produto.nome }}">
+              </td>
+              <td>{{ produto.id }}</td>
+              <td>{{ produto.nome }}</td>
+              <td>{{ produto.descricao }}</td>
+              <td>{{ produto.categoria }}</td>
+              <td>R$ {{ produto.preco }}</td>
+              <td>{{ produto.estoque }}</td>
+              <td>{{ produto.ativo ? 'Ativo' : 'Inativo' }}</td>
+
+              <td class="acoes">
+                <button class="btn-editar" (click)="abrirEditar(produto.id!)">Editar</button>
+                <button class="btn-excluir" (click)="abrirModalExcluir(produto.id!)">Excluir</button>
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    }
+
+    @if (mostrarListaAdmins) {
+      <table class="tabela-admin">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>Email</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          @for (admin of listaAdmins; track admin.id) {
+            <tr>
+              <td>{{ admin.id }}</td>
+              <td>{{ admin.nome }}</td>
+              <td>{{ admin.email }}</td>
+              <td class="acoes">
+                <button class="btn-editar" (click)="abrirEditarAdmin(admin.id!)">Editar</button>
+                <button class="btn-excluir" (click)="abrirModalExcluirAdmin(admin.id!)">Excluir</button>
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    }
+
+  </div>
+</div>
+
+
+@if (mostrarModalCadastro) {
+  <app-cadastrar 
+    (fecharModal)="fecharCadastro()" 
+    (produtoCadastrado)="fecharCadastro()">
+  </app-cadastrar>
+}
+
+@if (mostrarModalCadastroAdmin) {
+  <app-cadastrar-admin
+    (fecharModal)="fecharCadastroAdmin()" 
+    (produtoCadastrado)="fecharCadastroAdmin()">
+  </app-cadastrar-admin>
+}
+
+<app-consultar 
+  *ngIf="mostrarConsulta"
+  (fecharModal)="fecharConsulta()">
+</app-consultar>
+
+<app-consultar-admin
+  *ngIf="mostrarConsultaAdmin"
+  (fecharModal)="fecharConsultaAdmin()">
+</app-consultar-admin>
+
+<app-alterar 
+  *ngIf="modalEditarAberto"
+  [id]="idParaEditar"
+  (fecharModal)="modalEditarAberto = false">
+</app-alterar>
+
+<app-alterar-admin
+  *ngIf="modalEditarAdminAberto"
+  [id]="idParaEditar"
+  (fecharModal)="modalEditarAdminAberto = false">
+</app-alterar-admin>
+
+@if (modalExcluirAberto) {
+  <div class="modal-bg" (click)="fecharModalExcluir()">
+    <div class="modal-container" (click)="$event.stopPropagation()">
+
+      <h2 class="modal-title">Confirmar Exclusão</h2>
+
+      <p class="texto-excluir">Tem certeza que deseja excluir este produto?</p>
+
+      <div class="actions">
+        <button class="btn-confirmar" (click)="confirmarExclusao()">Sim</button>
+        <button class="btn-cancelar" (click)="fecharModalExcluir()">Cancelar</button>
+      </div>
+
+    </div>
+  </div>
+}
+
+@if (modalExcluirAdminAberto) {
+  <div class="modal-bg" (click)="fecharModalExcluirAdmin()">
+    <div class="modal-container" (click)="$event.stopPropagation()">
+
+      <h2 class="modal-title">Confirmar Exclusão</h2>
+
+      <p class="texto-excluir">Tem certeza que deseja excluir este admin?</p>
+
+      <div class="actions">
+        <button class="btn-confirmar" (click)="confirmarExclusaoAdmin()">Sim</button>
+        <button class="btn-cancelar" (click)="fecharModalExcluirAdmin()">Cancelar</button>
+      </div>
+
+    </div>
+  </div>
+}
+
+<app-excluir 
+  *ngIf="mostrarExcluir"
+  (fecharModal)="mostrarExcluir = false">
+</app-excluir>
+
+<app-excluir-admin
+  *ngIf="mostrarExcluirAdm"
+  (fecharModal)="mostrarExcluirAdm = false">
+</app-excluir-admin>
+
+@if (modalLogoutAberto) {
+  <div class="modal-bg" (click)="fecharModalLogout()">
+    <div class="modal-container" (click)="$event.stopPropagation()">
+
+      <h2 class="modal-title">Confirmar Logout</h2>
+
+      <p class="texto-excluir">Tem certeza que deseja sair da Administração?</p>
+
+      <div class="actions">
+        <button class="btn-confirmar" (click)="confirmarLogout()">Sim</button>
+        <button class="btn-cancelar" (click)="fecharModalLogout()">Cancelar</button>
+      </div>
+
+    </div>
+  </div>
+}

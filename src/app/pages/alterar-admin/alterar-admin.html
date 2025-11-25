@@ -1,0 +1,35 @@
+<div class="modal-bg" (click)="fechar()">
+  <div class="modal-container" (click)="$event.stopPropagation()">
+
+    <h2 class="modal-title">Editar Admin</h2>
+
+    <div *ngIf="carregando" class="loading">
+      Carregando dados...
+    </div>
+
+    <form *ngIf="!carregando" class="modal-form" (ngSubmit)="salvarAlteracoes()">
+
+      <label>ID</label>
+      <input type="text" [value]="admin.id" disabled class="input-disabled">
+
+      <label>Nome</label>
+      <input type="text" [(ngModel)]="admin.nome" name="nome" required>
+
+      <label>E-mail</label>
+      <input [(ngModel)]="admin.email" name="email" required>
+
+      <label>Senha Atual</label>
+      <input type="string" step="0.01" [(ngModel)]="senhaAtualInput" name="senhaAtual" required>
+
+      <label>Senha Nova</label>
+      <input type="string" step="0.01" [(ngModel)]="senhaNovaInput" name="senhaNova" required>
+
+      <div class="actions">
+        <button type="submit" class="btn-salvar">Salvar</button>
+        <button type="button" class="btn-cancelar" (click)="fechar()">Cancelar</button>
+      </div>
+
+    </form>
+
+  </div>
+</div>

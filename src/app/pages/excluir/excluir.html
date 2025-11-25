@@ -1,0 +1,33 @@
+<div class="modal-bg" (click)="fechar()">
+  <div class="modal-container" (click)="$event.stopPropagation()">
+
+    <ng-container *ngIf="!confirmandoExclusao">
+      <h2 class="modal-title">Excluir Produto</h2>
+
+      <p class="texto-excluir">Informe o ID do produto que deseja excluir:</p>
+
+      <input type="text" [(ngModel)]="idExcluir" class="input-id">
+
+      <p class="erro" *ngIf="erroMensagem">{{ erroMensagem }}</p>
+
+      <div class="actions center">
+        <button class="btn-confirmar" (click)="validarId()">Continuar</button>
+        <button class="btn-cancelar" (click)="fechar()">Cancelar</button>
+      </div>
+    </ng-container>
+
+    <ng-container *ngIf="confirmandoExclusao">
+      <h2 class="modal-title">Confirmar Exclusão</h2>
+
+      <p class="texto-excluir">
+        Tem certeza que deseja excluir o produto ID <b>{{ idExcluir }}</b>?
+      </p>
+
+      <div class="actions center">
+        <button class="btn-confirmar" (click)="confirmarExclusao()">Sim, excluir</button>
+        <button class="btn-cancelar" (click)="fechar()">Cancelar</button>
+      </div>
+    </ng-container>
+
+  </div>
+</div>

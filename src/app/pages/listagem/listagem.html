@@ -1,0 +1,94 @@
+<h2 id="doces" class="categoria-titulo center">DOCES INDIVIDUAIS</h2>
+<div class="cards-container">
+  @for (produto of listaProdutos; track produto) {
+    @if (produto.categoria === 'Doces Individuais') {
+      <div class="card">
+        <div class="card-header">
+          <h3>{{ produto.nome }}</h3>
+          <span class="categoria">{{ produto.categoria }}</span>
+        </div>
+
+        <div class="card-img">
+          <img [src]="produto.imagem" alt="{{ produto.nome }}">
+        </div>
+
+        <p class="descricao">{{ produto.descricao }}</p>
+
+        <div class="card-info">
+          <span class="preco">R$ {{ produto.preco }}</span>
+        </div>
+      </div>
+    }
+  }
+</div>
+
+<h2 id="tortas" class="categoria-titulo center">TORTAS</h2>
+<div class="cards-container">
+  @for (produto of listaProdutos; track produto) {
+    @if (produto.categoria === 'Tortas') {
+      <div class="card">
+        <div class="card-header">
+          <h3>{{ produto.nome }}</h3>
+          <span class="categoria">{{ produto.categoria }}</span>
+        </div>
+
+        <div class="card-img">
+          <img [src]="produto.imagem" alt="{{ produto.nome }}">
+        </div>
+
+        <p class="descricao">{{ produto.descricao }}</p>
+
+        <div class="card-info">
+          <span class="preco">R$ {{ produto.preco }}</span>
+        </div>
+      </div>
+    }
+  }
+</div>
+
+<h2 id="bolos" class="categoria-titulo center">BOLOS</h2>
+<div class="cards-container">
+  @for (produto of listaProdutos; track produto) {
+    @if (produto.categoria === 'Bolos') {
+      <div class="card">
+        <div class="card-header">
+          <h3>{{ produto.nome }}</h3>
+          <span class="categoria">{{ produto.categoria }}</span>
+        </div>
+
+        <div class="card-img">
+          <img [src]="produto.imagem" alt="{{ produto.nome }}">
+        </div>
+
+        <p class="descricao">{{ produto.descricao }}</p>
+
+        <div class="card-info">
+          <span class="preco">R$ {{ produto.preco }}</span>
+        </div>
+      </div>
+    }
+  }
+</div>
+
+<div id="pedido" class="card-ilustrativo">
+  <div class="ilustracao">
+    <img src="pedido.png" alt="Faça seu pedido">
+  </div>
+
+  <div class="texto-pedido">
+    <h3>Faça seu Pedido!</h3>
+    <p>
+      Gostou de algum produto ou quer fazer um pedido personalizado?
+      Fale com a gente pelo WhatsApp!  
+      É só clicar no botão abaixo:
+    </p>
+
+    <a 
+      href="https://wa.me/5511999999999" 
+      target="_blank" 
+      class="btn-whats"
+    >
+      Pedir pelo WhatsApp
+    </a>
+  </div>
+</div>

@@ -1,0 +1,72 @@
+<div class="modal-bg" (click)="fechar()">
+  <div class="modal-container" (click)="$event.stopPropagation()">
+
+    <h2 class="modal-title">Consultar Produto</h2>
+
+    <form (ngSubmit)="buscarProduto()" class="modal-form">
+
+      <label>ID do Produto</label>
+      <input 
+        type="text"
+        required
+        [(ngModel)]="idBusca"
+        name="idBusca"
+        class="input-id"
+        placeholder="Digite o ID (ex: a1b2...)"
+      />
+
+      <button type="submit" class="btn-buscar">Buscar</button>
+    </form>
+
+    <div *ngIf="produtoEncontrado" class="produto-dados">
+      <h3>Dados do Produto</h3>
+
+      <div class="linha">
+        <strong>ID:</strong> {{ produtoEncontrado.id }}
+      </div>
+
+      <div class="linha">
+        <strong>Nome:</strong> {{ produtoEncontrado.nome }}
+      </div>
+
+      <div class="linha">
+        <strong>Descrição:</strong> {{ produtoEncontrado.descricao }}
+      </div>
+
+      <div class="linha">
+        <strong>Categoria:</strong> {{ produtoEncontrado.categoria }}
+      </div>
+
+      <div class="linha">
+        <strong>Preço:</strong> R$ {{ produtoEncontrado.preco }}
+      </div>
+
+      <div class="linha">
+        <strong>Estoque:</strong> {{ produtoEncontrado.estoque }}
+      </div>
+
+      <div class="linha">
+        <strong>Situação:</strong> 
+        {{ produtoEncontrado.ativo ? 'Ativo' : 'Inativo' }}
+      </div>
+
+      <div class="linha">
+        <strong>Imagem:</strong>
+        <br>
+        <img 
+          *ngIf="produtoEncontrado.imagem" 
+          [src]="produtoEncontrado.imagem"
+          class="produto-img"
+          alt="imagem do produto"
+        >
+      </div>
+    </div>
+
+    <div *ngIf="erroBusca" class="erro-busca">
+      {{ erroBusca }}
+    </div>
+
+    <button class="btn-fechar" (click)="fechar()">Fechar</button>
+
+  </div>
+</div>

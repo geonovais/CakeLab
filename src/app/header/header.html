@@ -1,0 +1,52 @@
+<nav class="menu">
+  <div class="menu-content">
+    <img src="logoCakeLab.png" class="logo" (click)="abrirLoginAdmin()">
+    <ul>
+      <li><a href="#doces">Doces Individuais</a></li>
+      <li><a href="#bolos">Bolos</a></li>
+      <li><a href="#tortas">Tortas</a></li>
+      <li><a href="#pedido">Peça Agora</a></li>
+      <li><a href="#contato">Contato</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="banner">
+  <img src="banner.png">
+</div>
+
+@if (mostrarLoginAdmin) {
+  <div class="modal-bg" (click)="fecharLoginAdmin()">
+    <div class="modal-container" (click)="$event.stopPropagation()">
+
+      <h2 class="modal-title">Login do Administrador</h2>
+
+      <form (ngSubmit)="entrarAdmin()" class="modal-form">
+
+        <label>Usuário</label>
+        <input 
+          type="text"
+          [(ngModel)]="usuario"
+          name="usuario"
+          required
+          placeholder="Digite seu usuário"
+        />
+
+        <label>Senha</label>
+        <input 
+          type="password"
+          [(ngModel)]="senha"
+          name="senha"
+          required
+          placeholder="Digite sua senha"
+        />
+
+        <button type="submit" class="btn-buscar">Entrar</button>
+      </form>
+
+      <button class="btn-fechar" (click)="fecharLoginAdmin()">Cancelar</button>
+
+    </div>
+  </div>
+}
+

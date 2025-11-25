@@ -1,0 +1,45 @@
+<div class="modal-bg" (click)="fechar()">
+  <div class="modal-container" (click)="$event.stopPropagation()">
+
+    <h2 class="modal-title">Consultar Admin</h2>
+
+    <form (ngSubmit)="buscarAdmin()" class="modal-form">
+
+      <label>ID do Admin</label>
+      <input 
+        type="text"
+        required
+        [(ngModel)]="idBusca"
+        name="idBusca"
+        class="input-id"
+        placeholder="Digite o ID"
+      />
+
+      <button type="submit" class="btn-buscar">Buscar</button>
+    </form>
+
+    <div *ngIf="adminEncontrado" class="produto-dados">
+      <h3>Dados do Admin</h3>
+
+      <div class="linha">
+        <strong>ID:</strong> {{ adminEncontrado.id }}
+      </div>
+
+      <div class="linha">
+        <strong>Nome:</strong> {{ adminEncontrado.nome }}
+      </div>
+
+      <div class="linha">
+        <strong>E-mail:</strong> {{ adminEncontrado.email }}
+      </div>
+
+    </div>
+
+    <div *ngIf="erroBusca" class="erro-busca">
+      {{ erroBusca }}
+    </div>
+
+    <button class="btn-fechar" (click)="fechar()">Fechar</button>
+
+  </div>
+</div>

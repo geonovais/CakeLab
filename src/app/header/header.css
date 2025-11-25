@@ -1,0 +1,163 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+.menu {
+  background-color: #fb6b90;
+  padding: 10px 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  font-family: 'Poppins', sans-serif; 
+}
+
+.menu-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 20px; 
+}
+
+.logo {
+  width: 45px;   
+  height: auto;
+  border-radius: 50%; 
+}
+
+.menu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.menu li {
+  display: inline;
+}
+
+.menu a {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 600;
+  font-family: 'Poppins', sans-serif; 
+  padding: 6px 10px;
+  border-radius: 6px;
+  transition: 0.2s ease;
+}
+
+.menu a:hover {
+  background-color: #ff9fba;
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+.banner img{
+  width: 100%;
+}
+
+/* Fundo escuro com blur */
+.modal-bg {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(3px);
+  z-index: 2000;
+  padding: 20px;
+}
+
+/* Contêiner da janela */
+.modal-container {
+  background: #fff;
+  width: 95%;
+  max-width: 420px;
+  padding: 28px;
+  border-radius: 16px;
+  animation: fadeIn 0.25s ease;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+}
+
+/* Título */
+.modal-title {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 24px;
+  font-weight: 700;
+  color: #333;
+}
+
+.modal-form label {
+  font-weight: 600;
+  margin-top: 10px;
+  color: #444;
+  display: block;
+}
+
+/* Inputs */
+input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 6px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 15px;
+  transition: 0.2s;
+}
+
+input:focus {
+  border-color: #ff69b4;
+  outline: none;
+  box-shadow: 0 0 4px rgba(255,105,180,0.4);
+}
+
+/* Botão principal (Entrar) */
+.btn-buscar {
+  margin-top: 20px;
+  width: 100%;
+  padding: 12px;
+  background: linear-gradient(135deg, #ff79c6, #ff4fa3);
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  transition: 0.2s;
+}
+
+.btn-buscar:hover {
+  transform: translateY(-2px);
+  opacity: 0.9;
+}
+
+/* Botão fechar */
+.btn-fechar {
+  margin-top: 15px;
+  width: 100%;
+  padding: 12px;
+  background: #777;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  transition: 0.2s;
+}
+
+.btn-fechar:hover {
+  background: #555;
+}
+
+/* Animação */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.93);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}

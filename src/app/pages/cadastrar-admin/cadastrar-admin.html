@@ -1,0 +1,25 @@
+<div class="modal-bg" (click)="fechar()">
+  <div class="modal-container" (click)="$event.stopPropagation()">
+
+    <h2 class="modal-title">Cadastrar Produto</h2>
+
+    <form (ngSubmit)="enviarFormulario($event)" class="modal-form">
+
+      <label>Nome</label>
+      <input type="text" [(ngModel)]="admin.nome" name="nome" required>
+
+      <label>E-mail</label>
+      <input type="email" [(ngModel)]="admin.email" name="email" required>
+
+      <label>Senha</label>
+      <input type="text" [(ngModel)]="admin.senhaHash" name="senha" required>
+
+      <div class="actions">
+        <button type="submit" class="btn-salvar">Salvar</button>
+        <button type="button" class="btn-cancelar" (click)="fechar()">Cancelar</button>
+      </div>
+
+    </form>
+
+  </div>
+</div>

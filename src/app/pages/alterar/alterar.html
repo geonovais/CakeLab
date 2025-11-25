@@ -1,0 +1,51 @@
+<div class="modal-bg" (click)="fechar()">
+  <div class="modal-container" (click)="$event.stopPropagation()">
+
+    <h2 class="modal-title">Editar Produto</h2>
+
+    <div *ngIf="carregando" class="loading">
+      Carregando dados...
+    </div>
+
+    <form *ngIf="!carregando" class="modal-form" (ngSubmit)="salvarAlteracoes()">
+
+      <label>ID</label>
+      <input type="text" [value]="produto.id" disabled class="input-disabled">
+
+      <label>Nome</label>
+      <input type="text" [(ngModel)]="produto.nome" name="nome" required>
+
+      <label>Descrição</label>
+      <textarea [(ngModel)]="produto.descricao" name="descricao" required></textarea>
+
+      <label>Categoria</label>
+      <select [(ngModel)]="produto.categoria" name="categoria" required>
+        <option value="Doces Individuais">Doces Individuais</option>
+        <option value="Tortas">Tortas</option>
+        <option value="Bolos">Bolos</option>
+      </select>
+
+      <label>Preço</label>
+      <input type="number" step="0.01" [(ngModel)]="produto.preco" name="preco" required>
+
+      <label>Estoque</label>
+      <input type="number" [(ngModel)]="produto.estoque" name="estoque" required>
+
+      <label>Situação</label>
+      <select [(ngModel)]="produto.ativo" name="ativo" required>
+        <option [ngValue]="true">Ativo</option>
+        <option [ngValue]="false">Inativo</option>
+      </select>
+
+      <label>Imagem (URL)</label>
+      <input type="text" [(ngModel)]="produto.imagem" name="imagem" disabled>
+
+      <div class="actions">
+        <button type="submit" class="btn-salvar">Salvar</button>
+        <button type="button" class="btn-cancelar" (click)="fechar()">Cancelar</button>
+      </div>
+
+    </form>
+
+  </div>
+</div>

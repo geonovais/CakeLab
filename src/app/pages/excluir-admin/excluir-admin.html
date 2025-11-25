@@ -1,0 +1,33 @@
+<div class="modal-bg" (click)="fechar()">
+  <div class="modal-container" (click)="$event.stopPropagation()">
+
+    <ng-container *ngIf="!confirmandoExclusaoAdmin">
+      <h2 class="modal-title">Excluir Admin</h2>
+
+      <p class="texto-excluir">Informe o ID do admin que deseja excluir:</p>
+
+      <input type="text" [(ngModel)]="idExcluir" class="input-id">
+
+      <p class="erro" *ngIf="erroMensagem">{{ erroMensagem }}</p>
+
+      <div class="actions center">
+        <button class="btn-confirmar" (click)="validarId()">Continuar</button>
+        <button class="btn-cancelar" (click)="fechar()">Cancelar</button>
+      </div>
+    </ng-container>
+
+    <ng-container *ngIf="confirmandoExclusaoAdmin">
+      <h2 class="modal-title">Confirmar Exclusão</h2>
+
+      <p class="texto-excluir">
+        Tem certeza que deseja excluir o admin ID <b>{{ idExcluir }}</b>?
+      </p>
+
+      <div class="actions center">
+        <button class="btn-confirmar" (click)="confirmarExclusaoAdmin()">Sim, excluir</button>
+        <button class="btn-cancelar" (click)="fechar()">Cancelar</button>
+      </div>
+    </ng-container>
+
+  </div>
+</div>

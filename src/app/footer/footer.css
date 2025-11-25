@@ -1,0 +1,46 @@
+.footer {
+  background: #ffb1ce; 
+  padding: 40px 20px;
+  color: #8a1a36;
+  font-family: 'Poppins', sans-serif;
+  height: 200px;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 40px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.footer-logo {
+  text-align: left;
+}
+
+.footer-logo .logo {
+  width: 80px;
+  margin-bottom: 10px;
+}
+
+.footer-section h4 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.footer-section p {
+  margin: 4px 0;
+}
+
+.footer-section img{
+    width: 140px;
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 30px;
+  padding-top: 10px;
+  border-top: 1px solid #f3f2f2;
+  font-size: 14px;
+}

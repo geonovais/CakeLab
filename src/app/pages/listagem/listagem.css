@@ -1,0 +1,143 @@
+.cards-container {
+  max-width: 1100px;
+  margin: 30px auto;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 22px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.card {
+  background: #fff;
+  padding: 20px;
+  border-radius: 14px;
+  border: 1px solid #ffd3e0;
+  box-shadow: 0 4px 10px rgba(255, 105, 145, 0.15);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 16px rgba(255, 105, 145, 0.25);
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+}
+
+.card-header h3 {
+  margin: 0;
+  font-size: 18px;
+  color: #d6336c;
+  font-weight: 700;
+}
+
+.categoria {
+  background: #ffb6d2;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  color: #fff;
+  font-weight: 600;
+}
+
+.card-img {
+  width: 100%;
+  height: 160px;
+  margin: 14px 0;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #ffe2ec; 
+}
+
+.card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.descricao {
+  font-size: 14px;
+  color: #555;
+  margin: 12px 0 18px;
+  line-height: 1.4;
+}
+
+.card-info {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.preco {
+  font-size: 18px;
+  font-weight: 700;
+  color: #fb6b90;
+}
+
+.categoria-titulo {
+  font-size: 26px;
+  margin: 40px 0 20px 0;
+  font-weight: 700;
+  color: #fb6b90;
+  font-family: 'Poppins', sans-serif;
+}
+
+.center {
+  text-align: center;
+}
+
+.card-ilustrativo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  margin: 50px auto;
+  padding: 30px;
+  max-width: 900px;
+  background: #ffffff;
+  border: 1px solid #fb6b90;
+  border-radius: 16px;
+  box-shadow: 0 4px 14px rgba(126, 11, 59, 0.08);
+}
+
+.ilustracao img {
+  width: 250px;
+  height: auto;
+  border-radius: 12px;
+}
+
+.texto-pedido h3 {
+  font-size: 24px;
+  margin-bottom: 12px;
+  color: #fb6b90;
+  font-family: 'Poppins', sans-serif;
+}
+
+.texto-pedido p {
+  font-size: 16px;
+  color: #444;
+  margin-bottom: 15px;
+  max-width: 400px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.btn-whats {
+  display: inline-block;
+  padding: 10px 20px;
+  background: #fb6b90;
+  color: white;
+  font-weight: 600;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: 0.3s;
+  font-family: 'Poppins', sans-serif;
+}
+
+.btn-whats:hover {
+  background: #1ebe5d;
+}
+
+

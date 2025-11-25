@@ -1,0 +1,9 @@
+@if (!isAdmPage) {
+  <app-header></app-header>
+}
+
+<router-outlet />
+
+@if (!isAdmPage) {
+<app-footer></app-footer>
+}
